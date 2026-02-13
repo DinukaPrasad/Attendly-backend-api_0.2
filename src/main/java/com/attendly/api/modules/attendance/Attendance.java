@@ -2,8 +2,11 @@ package com.attendly.api.modules.attendance;
 
 import com.attendly.api.modules.sessions.Session;
 import com.attendly.api.modules.users.User;
+import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 
@@ -43,7 +46,8 @@ public class Attendance {
     private AttendanceStatus status;
 
     @Column(name = "evidence_json", columnDefinition = "jsonb")
-    private String evidenceJson;
+    @JdbcTypeCode(SqlTypes.JSON)
+    private JsonNode evidenceJson;
 
     @Column(name = "note", length = 255)
     private String note;

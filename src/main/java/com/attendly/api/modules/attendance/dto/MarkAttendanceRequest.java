@@ -1,5 +1,6 @@
 package com.attendly.api.modules.attendance.dto;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -24,4 +25,6 @@ public class MarkAttendanceRequest {
 
     @Size(max = 255, message = "Note must be at most 255 characters")
     private String note;
+
+    private JsonNode evidence;
 }

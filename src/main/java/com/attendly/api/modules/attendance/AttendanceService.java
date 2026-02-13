@@ -69,6 +69,7 @@ public class AttendanceService {
                 .markedAt(LocalDateTime.now())
                 .status(status)
                 .note(request.getNote())
+                .evidenceJson(request.getEvidence())
                 .build();
 
         return mapper.toResponse(attendanceRepository.save(attendance));
